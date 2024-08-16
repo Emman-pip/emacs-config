@@ -2,6 +2,17 @@
 #+AUTHOR: Emmanuel Parreno  (EMMAN)
 #+DESCRIPTION: An init file for GNU Emacs
 
+* My first emacs init file
+I am a vim (neovim) user. I got hooked by the idea of everything being centralized, and with a lispy language at that (something I've never tried before).
+This is my attempt to satisfy my curiosity with Gnu Emacs (more specifically, something made from scratch).
+
+* Why the switch?
+I will have to develop in Java this coming semester (S.Y. 2024-2025). Something vim is infamously bad at. I'm trying to make an editor that can handle Java code debugging.
+I was partially successful at setting up Java in neovim, but it only had Gradle support and autocompletion. It didn't have the debugger or more advanced features like template generation in FXML (or others).
+I read that GNU Emacs is good at that (without the heaviness of traditional IDEs(intellij, netbeans, etc.)).
+
+** I wanted to test it out so, yeah.... I'm suffering here..
+
 * Packages
 
 ** Install Straight.el(package manager)
@@ -48,12 +59,12 @@
   (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   (corfu-auto t)                 ;; Enable auto completion
   ;; (corfu-separator ?\s)          ;; Orderless field separator
-  (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
-  (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
+  ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
+  ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
   ;; (corfu-preview-current nil)    ;; Disable current candidate preview
   ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
   ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
-  (corfu-scroll-margin 10)        ;; Use scroll margin
+  (corfu-scroll-margin 999)        ;; Use scroll margin
 
   ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
   ;; :hook ((prog-mode . corfu-mode)
