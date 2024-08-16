@@ -97,8 +97,8 @@ I read that GNU Emacs is good at that (without the heaviness of traditional IDEs
 
 ** Install company-mode
 #+begin_src emacs-lisp
-  (straight-use-package 'company-mode)
-  (add-hook 'after-init-hook 'global-company-mode)
+  ;; (straight-use-package 'company-mode)
+  ;; (add-hook 'after-init-hook 'global-company-mode)
 #+end_src
 
 
