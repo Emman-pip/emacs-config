@@ -1,6 +1,6 @@
 #+TITLE: My Org Init File
 #+AUTHOR: Emmanuel Parreno  (EMMAN)
-#+DESSCRIPTION: An init file for GNU Emacs
+#+DESCRIPTION: An init file for GNU Emacs
 
 * Packages
 
@@ -98,4 +98,12 @@
   (global-display-line-numbers-mode)
 
   (set-face-attribute 'default nil :height 120)
+#+end_src
+
+** Theming
+#+begin_src emacs-lisp
+    (straight-use-package 'catppuccin-theme)
+	(load-theme 'catppuccin :no-confirm)
+    (setq catppuccin-flavor 'macchiato) ;; or 'latte, 'macchiato, or 'mocha
+    (catppuccin-reload)
 #+end_src
