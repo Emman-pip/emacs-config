@@ -34,8 +34,62 @@
   (setq evil-want-Y-yank-to-eol t)
   (setq evil-vsplit-window-right t)
   (setq evil-split-window-below t)
+  (setq evil-want-keybinding nil)
   (evil-mode 1)
 #+end_src
+
+** CORFU (completion)
+#+begin_src emacs-lisp
+  (straight-use-package 'corfu)
+(use-package corfu
+:straight t
+  ;; Optional customizations
+  :custom
+  (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+  (corfu-auto t)                 ;; Enable auto completion
+  ;; (corfu-separator ?\s)          ;; Orderless field separator
+  (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
+  (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
+  ;; (corfu-preview-current nil)    ;; Disable current candidate preview
+  ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
+  ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
+  (corfu-scroll-margin 10)        ;; Use scroll margin
+
+  ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
+  ;; :hook ((prog-mode . corfu-mode)
+  ;;        (shell-mode . corfu-mode)
+  ;;        (eshell-mode . corfu-mode))
+
+  ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
+  ;; be used globally (M-/).  See also the customization variable
+  ;; `global-corfu-modes' to exclude certain modes.
+  :init
+  (global-corfu-mode))
+#+end_src
+
+** Install evil-collection
+#+begin_src emacs-lisp
+  (straight-use-package 'evil-collection)
+  (evil-collection-init)
+#+end_src
+
+** Install python LSP (pyright)
+#+begin_src emacs-lisp
+    (straight-use-package 'lsp-pyright)
+  (use-package lsp-pyright
+    :straight t
+    :ensure t
+    :hook (python-mode . (lambda ()
+			    (require 'lsp-pyright)
+			    (lsp))))  ; or lsp-deferred
+#+end_src
+
+** Install company-mode
+#+begin_src emacs-lisp
+  (straight-use-package 'company-mode)
+  (add-hook 'after-init-hook 'global-company-mode)
+#+end_src
+
 
 * Additional settings (customizations)
 #+begin_src emacs-lisp
@@ -43,5 +97,5 @@
   (setq display-line-numbers-type 'relative)
   (global-display-line-numbers-mode)
 
-  (set-face-attribute 'default nil :height 160)
+  (set-face-attribute 'default nil :height 120)
 #+end_src
